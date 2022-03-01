@@ -3,3 +3,8 @@ export interface UserData {
   name: string;
   img: string;
 }
+
+export interface NewUserDataDTO {
+  name: string,
+  img: string
+}
