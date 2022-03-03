@@ -1,5 +1,5 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
-import { NewUserDataDTO, UserData } from './interface/user.model';
+import { NewUserDataDTO, UpdateUserDTO, UserData } from './interface/user.model';
 import UserRepository from './repository/user.repository';
 
 @Injectable()
@@ -13,8 +13,13 @@ export class UserService {
     return result
   }
 
-  findById(id: string): UserData {
+  findById(id: string) {
     const fetchedData = this.userRepository.getUserData(id);
     return fetchedData;
+  }
+
+  update(updateUserData: UpdateUserDTO) {
+    const result = this.userRepository.updateUserData(updateUserData)
+    return result
   }
 }
